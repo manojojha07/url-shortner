@@ -1,0 +1,40 @@
+import shortUrl from '../models/shortUrl.model.js';
+import urlSchema from '../models/shortUrl.model.js'
+import { ConflictError } from '../utlits/errorHandler.js';
+
+
+export const saveShortUrl = async(shortUrl , longUrl , userId) => {
+  
+   
+      try {
+          const newUrl = new urlSchema({
+        full_url:longUrl,
+      short_url:shortUrl
+    })
+    if(userId){
+        newUrl.user = userId
+    }
+    // console.log("newUser save from  short url.js : " , userId );
+    
+   await newUrl.save();
+      } catch (err) {
+        if(err.code == 11000){
+            throw new ConflictError("Short URL Allready exits ! ");
+        }
+        throw new Error(err)
+      } 
+    
+};
+
+
+export const getShortUrl = async (shortUrl) => {
+  return await urlSchema.findOneAndUpdate(
+    { short_url: shortUrl },
+    { $inc: { clicks: 1 } },  
+    // { new: true }             
+  );
+};
+
+export const getCustomShortUrl = async(slug) => {
+  return await urlSchema.findOne({short_url : slug});
+}
