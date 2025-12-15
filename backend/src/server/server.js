@@ -31,6 +31,10 @@ const createServer = () => {
     })
   );
 
+  app.get( '/' , (req ,res) => {
+    res.send("API Working success ")
+  })
+
   app.use(attachUser);
 
   app.use('/api/create', short_url);
