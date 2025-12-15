@@ -1,6 +1,8 @@
 import cluster from 'cluster';
 import os from 'os';
-import createServer from './src/server/server.js';  // relative path se app.js import karo
+import createServer from './src/server/server.js'; 
+import dotenv from 'dotenv';
+dotenv.config();
 
 const numCPUs = 4;  // ya os.cpus().length
 

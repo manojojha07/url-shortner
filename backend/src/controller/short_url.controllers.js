@@ -4,11 +4,11 @@ import wrapAsync from "../utlits/tryCatchWrapper.js"
 
 export const createShortUrl = wrapAsync(async (req,res)=>{
     const data = req.body
-    console.log("slug data from short url control : " , data);
+    // console.log("slug data from short url control : " , data);
     let shortUrl
     if(req.user){
         shortUrl = await createShortUrlWithUser(data.url,req.user._id,data.slug)
-        console.log("slug data from short url control : " , data.slug);
+        // console.log("slug data from short url control : " , data.slug);
         
     }else{  
         shortUrl = await createShortUrlWithoutUser(data.url)
