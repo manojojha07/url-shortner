@@ -23,16 +23,10 @@ const createServer = () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://url-shortner-chi-wheat.vercel.app"
-    ],
-    methods: ["GET", "POST"],
+app.use(cors({
+    origin: 'https://url-shortner-one-sepia.vercel.app', // ya '*'
     credentials: true
-  })
-);
+}));
 
 // preflight fix
 // app.options("*", cors());
