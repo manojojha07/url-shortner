@@ -27,7 +27,8 @@ const createServer = () => {
   cors({
     origin: [
       "http://localhost:5173",
-      "https://url-shortner-chi-wheat.vercel.app"
+      "https://url-shortner-chi-wheat.vercel.app",
+    '  https://url-shortner-chi-wheat.vercel.app/'
     ],
     methods: ["GET", "POST"],
     credentials: true
