@@ -2,7 +2,7 @@
 import axios from "axios";
 
 
-console.log("perfect coming backend api : ",import.meta.env.VITE_APP_URL)
+// console.log("perfect coming backend api : ",import.meta.env.VITE_APP_URL)
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_URL, // 🔥 MUST
   
