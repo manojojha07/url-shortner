@@ -24,7 +24,7 @@ const createServer = () => {
   app.use(cookieParser());
 
 app.use(cors({
-    origin: 'https://url-shortner-one-sepia.vercel.app', // ya '*'
+    origin: 'https://url-shortner-blue-six.vercel.app/', // ya '*'
     credentials: true
 }));
 
