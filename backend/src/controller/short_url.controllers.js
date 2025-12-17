@@ -1,6 +1,7 @@
 import { getShortUrl } from "../dao/short_url.js"
 import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/short_url.services.js"
 import wrapAsync from "../utlits/tryCatchWrapper.js"
+import 'dotenv/config'
 
 export const createShortUrl = wrapAsync(async (req,res)=>{
     const data = req.body
@@ -29,3 +30,4 @@ export const createCustomShortUrl = wrapAsync(async (req,res)=>{
     const shortUrl = await createShortUrlWithoutUser(url,customUrl)
     res.status(200).json({shortUrl : process.env.APP_URL + shortUrl})
 })
+console.log("url coming from shorturl conroler : " , process.env.APP_URL);
