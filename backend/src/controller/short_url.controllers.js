@@ -30,4 +30,4 @@ export const createCustomShortUrl = wrapAsync(async (req,res)=>{
     const shortUrl = await createShortUrlWithoutUser(url,customUrl)
     res.status(200).json({shortUrl : process.env.APP_URL + shortUrl})
 })
-console.log("url coming from shorturl conroler : " , process.env.APP_URL);
+// console.log("url coming from shorturl conroler : " , process.env.APP_URL);
