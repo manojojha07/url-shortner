@@ -23,13 +23,17 @@ const createServer = () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(cookieParser());
 
-  app.use(
-    cors({
-      origin: 'http://localhost:5173',
-      methods: ['GET', 'POST'],
-      credentials: true,
-    })
-  );
+ app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://url-shortner-chi-wheat.vercel.app"
+    ],
+    methods: ["GET", "POST"],
+    credentials: true
+  })
+);
+
 
   app.get( '/' , (req ,res) => {
     res.send("API Working success ")
