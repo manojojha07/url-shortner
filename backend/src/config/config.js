@@ -1,6 +1,6 @@
 export const cookieOptions = {
-    httpOnly: true,
-    secure: false, // ✅ use false for localhost (true for prod HTTPS)
-    sameSite: 'lax',
-    maxAge: 1000 * 60 * 60 // 1 hour
+  httpOnly: true,
+  secure: true,        // REQUIRED for HTTPS
+  sameSite: "none",    // REQUIRED for cross-origin
+  maxAge: 1000 * 60 * 60
 };
