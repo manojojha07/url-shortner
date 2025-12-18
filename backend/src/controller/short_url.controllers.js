@@ -1,7 +1,12 @@
 import { getShortUrl } from "../dao/short_url.js"
 import { createShortUrlWithoutUser, createShortUrlWithUser } from "../services/short_url.services.js"
 import wrapAsync from "../utlits/tryCatchWrapper.js"
-import 'dotenv/config'
+import dotenv from 'dotenv'
+dotenv.config();
+
+
+console.log("url comming perfactly : ",process.env.APP_URL);
+
 
 export const createShortUrl = wrapAsync(async (req,res)=>{
     const data = req.body
